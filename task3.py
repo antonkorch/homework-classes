@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import mean
 
 class Student:
     def __init__(self, name, surname, gender):
@@ -29,7 +29,7 @@ class Student:
         grades_list = []
         for grades in self.grades.values():
             grades_list += grades
-        return round(np.mean(grades_list),1)
+        return round(mean(grades_list),1)
     
     def rate_lecturer(self, lecturer, course, grade):
         if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached and course in self.courses_in_progress:
@@ -70,7 +70,7 @@ class Lecturer(Mentor):
         grades_list = []
         for grades in self.grades.values():
             grades_list += grades
-        return round(np.mean(grades_list),1)
+        return round(mean(grades_list),1)
     
 
 class Reviewer(Mentor):
